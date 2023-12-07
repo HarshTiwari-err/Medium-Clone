@@ -1,15 +1,18 @@
-import React from 'react'
-import Navbar from './components/navbar.component'
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
+import React from "react";
+import Navbar from "./components/navbar.component";
+import { Routes, Route } from "react-router-dom";
+import UserAuthForm from "./pages/userAuthForm.page";
 const App = () => {
   return (
-    <Router>
-      <Navbar/>
+    <>
       <Routes>
-        {/* <Route path='/' element={}/> */}
+        <Route path="/" element={<Navbar />}>
+          <Route path="signin" element={<UserAuthForm type="signin"/>} />
+          <Route path="signup" element={<UserAuthForm type="signup"/>} />
+        </Route>
       </Routes>
-    </Router>
-  )
-}
+    </>
+  );
+};
 
-export default App
+export default App;
